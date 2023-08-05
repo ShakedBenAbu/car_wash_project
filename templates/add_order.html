@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Order</title>
+    <script>
+        window.onload = function () {
+            var today = new Date();
+            var dateField = document.getElementById("date");
+            dateField.value = today.toISOString().slice(0, 10);
+        }
+    </script>
+</head>
+<body>
+    <h1>Add Order</h1>
+    {% if success %}
+    <p>Order added successfully!</p>
+    {% endif %}
+    <form action="/add_order" method="post">
+        <label for="customer_name">Customer Name:</label>
+        <select name="customer_name" required>
+            <option value="" disabled selected>Select Customer</option>
+            {% for customer in customers %}
+            <option value="{{ customer[0] }}">{{ customer[0] }}</option>
+            {% endfor %}
+        </select>
+        <label for="license_number">License Number:</label>
+        <input type="text" name="license_number">
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required>
+        <label for="wash_type">Wash Type:</label>
+        <select name="wash_type" required>
+            <option value="" disabled selected>Select Wash Type</option>
+            {% for wash_type in wash_types %}
+            <option value="{{ wash_type }}">{{ wash_type }}</option>
+            {% endfor %}
+        </select>
+        <label for="car_model">Car Model:</label>
+        <input type="text" name="car_model">
+        <label for="car_type">Car Type:</label>
+        <select name="car_type">
+            <option value="" disabled selected>Select Car Type</option>
+            {% for car_type in car_types %}
+            <option value="{{ car_type }}">{{ car_type }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Order</button>
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

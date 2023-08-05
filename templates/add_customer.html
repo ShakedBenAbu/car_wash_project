@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Customer</title>
+</head>
+<body>
+    <h1>Add Customer</h1>
+    <form action="/add_customer" method="post">
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" name="customer_name" required>
+        <label for="customer_id">Customer ID:</label>
+        <input type="text" name="customer_id" required>
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" required>
+        <label for="address">Address:</label>
+        <input type="text" name="address" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <button type="submit">Add Customer</button>
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

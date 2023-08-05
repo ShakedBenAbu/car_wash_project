@@ -3,9 +3,9 @@ import sqlite3
 def setup(filename="car_wash.sqlite"):  # create tables
     with sqlite3.connect(filename) as conn:
         cur = conn.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS customers(customer_name TEXT PRIMARY KEY, customer_id INTEGER PRIMARY KEY, phone_number TEXT, address TEXT, email TEXT)")
+        cur.execute("CREATE TABLE IF NOT EXISTS customers(customer_name TEXT PRIMARY KEY, customer_id INTEGER, phone_number TEXT, address TEXT, email TEXT)")
         conn.commit()
-        cur.execute("CREATE TABLE IF NOT EXISTS orders(order_id INTEGER PRIMARY KEY AUTO INCREMENT, customer_name TEXT, license_number TEXT, date TEXT, wash_type TEXT, car_type TEXT, car_model TEXT, FOREIGN KEY(customer_name) REFERENCES customers(customer_name))")
+        cur.execute("CREATE TABLE IF NOT EXISTS orders(order_id INTEGER PRIMARY KEY AUTOINCREMENT, customer_name TEXT, license_number TEXT, date TEXT, wash_type TEXT, car_type TEXT, car_model TEXT, FOREIGN KEY(customer_name) REFERENCES customers(customer_name))")
         conn.commit()
 
 
@@ -40,3 +40,4 @@ def get_join_dict(sql="SELECT * FROM orders JOIN customers on orders.customer_na
 
     
 setup()
+get_dict()

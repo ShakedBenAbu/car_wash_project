@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Customer</title>
+</head>
+<body>
+    <h1>Search Customer</h1>
+    <form action="/search" method="post">
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" name="customer_name" required>
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    {% if customer_found == True %}
+    <p>Customer found:</p>
+    <ul>
+        <li>Name: {{ customer_data[0] }}</li>
+        <li>Customer ID: {{ customer_data[1] }}</li>
+        <li>Phone Number: {{ customer_data[2] }}</li>
+        <li>Address: {{ customer_data[3] }}</li>
+        <li>Email: {{ customer_data[4] }}</li>
+    </ul>
+    {% elif customer_found == False %}
+    <p>Customer not found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
