@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Add Order</title>
+    <link rel="stylesheet" href="static/style.css">
     <script>
         window.onload = function () {
             var today = new Date();
@@ -11,11 +12,18 @@
     </script>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/show_customers">Customers List</a></li>
+            <li><a href="/add_customer">Add Customer</a></li>
+            <li><a href="/search">Search Customer</a></li>
+        </ul>
+    </nav>
     <h1>Add Order</h1>
     {% if success %}
     <p>Order added successfully!</p>
     {% endif %}
-    <form action="/add_order" method="post">
+    <form action="/" method="post">
         <label for="customer_name">Customer Name:</label>
         <select name="customer_name" required>
             <option value="" disabled selected>Select Customer</option>
@@ -46,6 +54,5 @@
         <button type="submit">Add Order</button>
     </form>
     <br>
-    <a href="/">Back to Home</a>
 </body>
 </html>

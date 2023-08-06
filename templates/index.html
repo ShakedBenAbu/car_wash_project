@@ -2,42 +2,15 @@
 <html>
 <head>
     <title>Car Wash Customers</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/add_customer">Add Customer</a></li>
-            <li><a href="/search">Search Customer</a></li>
-            <li><a href="/add_order">Add order</a></li>
-        </ul>
-    </nav>
-    <h1>Car Wash Customers</h1>
-    <form action="/add_customer" method="post">
-        <label for="customer_name">Customer Name:</label>
-        <input type="text" name="customer_name" required>
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" name="customer_id" required>
-        <label for="phone_number">Phone Number:</label>
-        <input type="text" name="phone_number" required>
-        <label for="address">Address:</label>
-        <input type="text" name="address" required>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <button type="submit">Add Customer</button>
-    </form>
-
     <h2>Customers List</h2>
     <ul>
         {% for customer in customers %}
         <li>Customer: {{ customer[0] }}, ID: {{ customer[1] }}</li>
         {% endfor %}
     </ul>
-
-    <form action="/search" method="post">
-        <label for="customer_name">Search Customer:</label>
-        <input type="text" name="customer_name" required>
-        <button type="submit">Search</button>
-    </form>
+    <a href="/">Back to Home</a>
 </body>
 </html>

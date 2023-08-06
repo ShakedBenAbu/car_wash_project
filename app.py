@@ -8,7 +8,7 @@ def get_db_connection():
     return sqlite3.connect(DATABASE)
 
 
-@app.route("/")
+@app.route("/show_customers")
 def index():
     try:
         with get_db_connection() as conn:
@@ -61,7 +61,7 @@ def search():
         return render_template("search.html", customer_found=None, customer_data=None)
     
 
-@app.route("/add_order", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def add_order():
     if request.method == "POST":
         try:
